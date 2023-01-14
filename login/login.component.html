@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+.input-container {
+
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 20px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 338px;
+ 
+}
+
+
+/* Set a style for the submit button */
+.btn {
+ 
+  width: 30%;
+  padding: 10px;
+  margin-left: 120px;
+  background:dodgerblue;
+  cursor:pointer;
+}
+
+
+</style>
+</head>
+
+
+<h2 class="op" style="text-align: center;"></h2>
+<dialog open class="dia">
+<form class="fo" #loginform="ngForm" (ngSubmit)="loginuser(loginform.value)" autocomplete="off">
+  <h3 style="text-align: center;color:antiquewhite;"><b>Login Form </b></h3>
+  <div class="form1">
+  
+<div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" pattern="[a-zA-Z]{1,}" minlength="4" required #name="ngModel" placeholder="Username" name="name" ngModel>
+   
+    <br><br>
+  </div>
+  <span *ngIf="name.invalid && name.touched" style="color:red" >
+      *This field is required
+   </span>
+    <span *ngIf="name.errors?.['minlength']" style="color:red" >
+      <br> *Name must be 4 characters long
+    </span>
+    <span *ngIf="name.errors?.['pattern']" style="color:red" >
+      <br>*Name can't be number
+    </span>
+<div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="email" name="email" ngModel #email="ngModel" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required email>
+    <br><br>
+  </div>
+  <span *ngIf="email.invalid && email.touched" style="color:red" >
+   <br> *This field is required
+ </span>
+ <span *ngIf="email.errors?.['pattern']" style="color:red" >
+  <br>*Email address is invalid
+</span>
+<div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="password" required #password="ngModel" minlength="6" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})" ngModel>
+    <br><br>
+  </div>
+  <span *ngIf="password.invalid && password.touched" style="color:red" >
+    <br> *This field is required
+    </span>
+     
+    <span *ngIf="password.errors?.['minlength']" style="color:red" >
+      <br> *Atleast 6 characters
+      </span>
+
+    <span *ngIf="password.errors?.['pattern']" style="color:red" >
+      <br>*password is invalid
+    </span>
+<br>
+    <button  [disabled]="loginform.invalid" type="submit" class="btn btn-primary"><b>Login</b></button>  
+ 
+</div>
+</form>
+
+</dialog> 
+
+</html>

@@ -1,0 +1,31 @@
+
+.form1{
+    padding-top:20px;
+    padding-left:30px;
+    display:inline-block;
+    justify-content:center;
+    width:100%;
+}
+
+.op{
+    padding-top:140px;
+    padding-left:50px;
+
+}
+
+.dia{
+    
+    padding-top:10px;
+   margin-left:400px;
+    background-color: rgba(21, 20, 20, 0.52);
+           border-radius: 5% ;
+           border-color:transparent;
+     
+           border-width:60px
+}
+
+.fo{
+    background:none;
+    border-width:60px;
+}
+
